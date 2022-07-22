@@ -18,14 +18,14 @@
         </div> <!-- end content outer content -->
 
         <div class="extra content">
-          <form class="ui reply form">
+          <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path) do |f| %>
             <div class="field">
               <div class="ui fluid icon input">
-                <input type="text" placeholder="Enter a message...">
-                <i class="bordered inverted orange icon edit"></i>
+                <%= f.text_field :body, placeholder: "Say something..." %>
+                <%= f.button '<i class="bordered inverted orange edit icon"></i>'.html_safe %>
               </div>
             </div>
-          </form>
+          <% end %>
         </div>
 
       </div>
